@@ -45,8 +45,6 @@ public class ExecutorOperacoesContaBancaria implements ExecutorOperacoes {
             case 3:
                 consultarSaldo();
                 break;
-            case 0:
-                break;
             default:
                 out.println("Entrada inválida. Tente novamente");
                 break;

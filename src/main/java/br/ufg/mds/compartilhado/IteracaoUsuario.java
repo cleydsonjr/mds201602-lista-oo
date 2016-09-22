@@ -22,7 +22,9 @@ public class IteracaoUsuario {
             exibaOpcoes();
 
             opcao = entradaConsole.pergunteInteiro("Entre o número da operação desejada:");
-            executorOperacoes.execute(opcao);
+            if (opcao != 0) {
+                executorOperacoes.execute(opcao);
+            }
             out.println();
         }
 
@@ -34,9 +36,9 @@ public class IteracaoUsuario {
 
         Map<Integer, String> opcoes = executorOperacoes.getOpcoes();
         opcoes.forEach((opcao, descricao) -> {
-            out.println(opcao + ". " + descricao);
+            out.println("\t" + opcao + ". " + descricao);
         });
 
-        out.println("0. Encerrar\n");
+        out.println("\t0. Encerrar\n");
     }
 }
