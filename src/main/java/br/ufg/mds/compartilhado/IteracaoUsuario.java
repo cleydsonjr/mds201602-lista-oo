@@ -4,8 +4,10 @@ import java.util.Map;
 
 import static java.lang.System.out;
 
+/**
+ * Classe auxiliar para encapsulamento da lógica de disponibilização de opções de operações para o usuário
+ */
 public class IteracaoUsuario {
-    private Map<Integer, String> opcoes;
     private ExecutorOperacoes executorOperacoes;
     private EntradaConsole entradaConsole;
 
@@ -14,24 +16,27 @@ public class IteracaoUsuario {
         this.executorOperacoes = executorOperacoes;
     }
 
-    void execute() {
+    public void execute() {
         int opcao = -1;
         while (opcao != 0) {
-            opcao = iteracaoComUsuario();
+            exibaOpcoes();
+
+            opcao = entradaConsole.pergunteInteiro("Entre o número da operação desejada:");
+            executorOperacoes.execute(opcao);
+            out.println();
         }
+
+        out.println("Obrigado.");
     }
 
-    private int iteracaoComUsuario() {
+    private void exibaOpcoes() {
         out.println("Operações disponíveis:");
-        out.println("1. Realizar depósito");
-        out.println("2. Realizar saque");
-        out.println("3. Recuperar saldo");
+
+        Map<Integer, String> opcoes = executorOperacoes.getOpcoes();
+        opcoes.forEach((opcao, descricao) -> {
+            out.println(opcao + ". " + descricao);
+        });
+
         out.println("0. Encerrar\n");
-
-        int opcao = entradaConsole.pergunteInteiro("Entre o número da operação desejada:");
-        executorOperacoes.execute(opcao);
-        out.println();
-
-        return opcao;
     }
 }

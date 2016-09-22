@@ -5,11 +5,14 @@ import br.ufg.mds.compartilhado.ExecutorOperacoes;
 import br.ufg.mds.exercicio2.model.ContaCorrente;
 
 import java.text.NumberFormat;
+import java.util.LinkedHashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import static java.lang.System.out;
 
 public class ExecutorOperacoesContaBancaria implements ExecutorOperacoes {
+    private Map<Integer, String> opcoes;
     private EntradaConsole entradaConsole;
     private ContaCorrente contaCorrente;
     private NumberFormat format;
@@ -17,8 +20,18 @@ public class ExecutorOperacoesContaBancaria implements ExecutorOperacoes {
     public ExecutorOperacoesContaBancaria(EntradaConsole entradaConsole, ContaCorrente contaCorrente) {
         this.entradaConsole = entradaConsole;
         this.contaCorrente = contaCorrente;
+
         Locale locale = new Locale("pt", "BR");
         format = NumberFormat.getCurrencyInstance(locale);
+
+        opcoes = new LinkedHashMap<>();
+        opcoes.put(1, "Realizar depósito");
+        opcoes.put(2, "Realizar saque");
+        opcoes.put(3, "Recuperar saldo");
+    }
+
+    public Map<Integer, String> getOpcoes() {
+        return opcoes;
     }
 
     public void execute(Integer opcao) {
@@ -73,5 +86,4 @@ public class ExecutorOperacoesContaBancaria implements ExecutorOperacoes {
             System.err.println(ex.getMessage());
         }
     }
-
 }

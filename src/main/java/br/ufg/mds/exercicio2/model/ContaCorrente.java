@@ -1,7 +1,7 @@
 package br.ufg.mds.exercicio2.model;
 
 /**
- * Classe responsável pela abstração de uma conta corrente bancária.
+ * Abstração de uma conta corrente bancária simplificada.
  */
 public class ContaCorrente {
     /**
@@ -50,7 +50,7 @@ public class ContaCorrente {
      * Método responsável por realizar depósito na conta
      *
      * @param valor O montante a ser depositado na conta - Obrigatoriamente maior que zero
-     * @return
+     * @return o novo saldo da conta
      */
     public Double realizeDeposito(Double valor) {
         // Verificando se o valor informado é válido
