@@ -18,7 +18,7 @@ public class Exercicio4Main {
 
         while (agenda.getQuantidadeContatos() < 10) {
             String nome = entradaConsole.pergunteString("Informe o nome do contato:");
-            String telefone = entradaConsole.pergunteString("Informe o nome do contato:");
+            String telefone = entradaConsole.pergunteString("Informe o número do telefone:");
             Boolean adicionado = agenda.adicioneContato(nome, telefone);
 
             if (adicionado) {

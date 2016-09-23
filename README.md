@@ -18,3 +18,9 @@ Validação através de execução do programa.
 ### Instruções para execução:
     $ ./gradlew assemble
     $ java -cp build/classes/main/ br.ufg.mds.exercicio3.main.Exercicio3Main
+
+## Exercício 4
+Validação através de execução do programa.
+### Instruções para execução:
+    $ ./gradlew assemble
+    $ java -cp build/classes/main/ br.ufg.mds.exercicio4.main.Exercicio4Main

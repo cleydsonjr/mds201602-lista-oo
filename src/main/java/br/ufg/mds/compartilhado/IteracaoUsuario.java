@@ -16,6 +16,9 @@ public class IteracaoUsuario {
         this.executorOperacoes = executorOperacoes;
     }
 
+    /**
+     * Realiza a iteração com o usuário exibindo as opções disponíveis.
+     */
     public void execute() {
         int opcao = -1;
         while (opcao != 0) {
